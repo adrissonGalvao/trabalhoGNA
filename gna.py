@@ -1,36 +1,32 @@
-## GNA aplicando o metodo da congruencia
-##Autores:Adrisson Galvão//Leandro Pereira//José Marcos  
-
 import math
 from datetime import datetime
 
-now = datetime.now()##pegando a data atual
+now = datetime.now()
 
-n= input("Digite quantos numeros deseja gerar:")##pegando quantidade de numeros aleatorios a serem gerados
+n= input("Digite quantos numeros deseja gerar:")
 
-if(n==0):## Verificando se n e valido
+if(n==0):
      print"Numero invalido"
      exit()
 
-semente= ((math.pi*(n/2))*(now.second*now.day))/now.hour##Calculando a semente
+semente= ((math.pi*(n/2))*(now.second*now.day))/now.hour
 
-a = now.microsecond##pegando a primeira constante
+a = now.microsecond
 
-c = (now.hour*now.day)/now.second##pegndo a segunda costante
+c = (now.hour*now.day)/now.second
 
-m=n*2 ##pegando a terceira constante
+m=n*2
 
-listaNumeros = []##lista para armazenar os numeros gerados
+listaNumeros = []
 
-for x in range(0,n): ## for que vai de 0 a n
+for x in range(0,n):
 
-    if(len(listaNumeros)==0):##verificando se é o primeiro numero a ser gerado
-        numeroAliatorio = (a*semente+c)%m ## calculando o numero aleatorio baseado na semente
+    if(len(listaNumeros)==0):
+        numeroAliatorio = (a*semente+c)%m
     else:
 
-        numeroAliatorio = (a*listaNumeros[len(listaNumeros)-1]+c)%m ## calculando o numero aleatorio baseado no ultimo numero gerado
-        
-    listaNumeros.append(numeroAliatorio)##adicionando o numero na lista
-    
-for x in listaNumeros: ##imprimindo a lista
+        numeroAliatorio = (a*listaNumeros[len(listaNumeros)-1]+c)%m
+    listaNumeros.append(numeroAliatorio)
+
+for x in listaNumeros:
     print x
